@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRANZWORMADOR DEGZDU :-DD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            width: 80%;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin: 10px;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #323232;
+            color: white;
+            resize: none;
+        }
+    </style>
+    <script>
+        function spurdo(t) {
+            let spurdoed = t
+                .toLowerCase()
+                .replace(/cz/g, 'dż')
+                .replace(/c(?!h)/g, 'dz')
+                .replace(/p/g, 'b')
+                .replace(/sz/g, 'rz')
+                .replace(/s/g, 'z')
+                .replace(/t/g, 'd')
+                .replace(/ś/g, 'ź')
+                .replace(/ć/g, 'dź')
+                .replace(/x/g, 'gz')
+                .replace(/f/g, 'w')
+                .replace(/k/g, 'g');
+            spurdoed = spurdoed.toUpperCase();
+            if (spurdoed.length > 0) {
+                spurdoed += " :-DD";
+            }
+            return spurdoed;
+        }
+
+        function updateOutput() {
+            const input = document.getElementById('tospurdo').value;
+            localStorage.setItem('tospurdo', input);
+            document.getElementById('spurdoed').value = spurdo(input);
+        }
+
+        function loadInput() {
+            const saved = localStorage.getItem('tospurdo');
+            if (saved) {
+                document.getElementById('tospurdo').value = saved;
+                updateOutput();
+            }
+        }
+
+        window.onload = loadInput;
+    </script>
+</head>
+
+<body>
+    <h1>DRANZWORMADOR DEGZDU :-DD</h1>
+    <div class="container">
+        <textarea id="tospurdo" placeholder="tu wpisz tekst" oninput="updateOutput()"></textarea>
+        <textarea id="spurdoed" placeholder="DU WBIRZ DEGZD :-DD" readonly></textarea>
+    </div>
+</body>
+
+</html>
